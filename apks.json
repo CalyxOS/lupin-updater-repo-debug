@@ -1,21 +1,5 @@
 [
   {
-    "name": "Signal",
-    "baseUrl": "https://updates.signal.org/android/Signal-Android-website-prod-universal-release-{ver}.apk",
-    "version": {
-      "url": "https://updates.signal.org/android/latest.json",
-      "json": "versionName"
-    }
-  },
-  {
-    "name": "FakeStore",
-    "baseUrl": "https://gitlab.com/CalyxOS/calyx-fdroid-repo-apks/-/raw/main/microg/GmsCore/FakeStore-common.apk"
-  },
-  {
-    "name": "GmsCore",
-    "baseUrl": "https://gitlab.com/CalyxOS/calyx-fdroid-repo-apks/-/raw/main/microg/GmsCore/GmsCore-common.apk"
-  },
-  {
     "name": "GCamPhotosPreview",
     "baseUrl": "https://gitlab.com/CalyxOS/calyx-fdroid-repo-apks/-/raw/main/GCamPhotosPreview/GCamPhotosPreview-common.apk"
   }

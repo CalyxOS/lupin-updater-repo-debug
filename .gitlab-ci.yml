@@ -13,12 +13,13 @@ before_script:
 
 pages:
   stage: deploy
+  before_script:
+    - sudo apt install git-lfs
   script:
   - (cd fdroid/repo && while read -r line || [ -n "$line" ]; do rm -f $line; done < ../../cleanup.txt)
   - ./download.py
+  - ./download_lfs.py
   - cd fdroid
-  - echo "keypass=\"$fdroid_keypass\"" >>config.py
-  - echo "keystorepass=\"$fdroid_keystorepass\"" >>config.py
   - ../fdroidserver/fdroid update --pretty
   - rm -rf archive
   - mkdir /fdroid && ../fdroidserver/fdroid deploy
