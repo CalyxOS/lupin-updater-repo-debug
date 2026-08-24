@@ -18,6 +18,7 @@ from __future__ import annotations
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 REPOS = [
@@ -66,6 +67,13 @@ def copy_files(paths: list[str], output_dir: Path) -> None:
         print(f"Copied {src} -> {dest}")
 
 
+def sign_file(file_path: Path, cert_path: Path, key_path: Path) -> None:
+    """Sign the given APK file using apksigner."""
+    print(f"Signing {file_path} with cert '{cert_path}' and key '{key_path}'")
+    subprocess.run(["apksigner", "sign", "--v4-signing-enabled=false",
+                    "--key", key_path, "--cert", cert_path, str(file_path)], check=True)
+
+
 def main() -> None:
     GIT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -73,6 +81,15 @@ def main() -> None:
         clone_repo(url)
 
     copy_files(FILES_TO_COPY, OUTPUT_DIR)
+
+    for file in FILES_TO_COPY:
+        if "chromium" in file:
+            sign_file(OUTPUT_DIR / Path(file).name, Path("keys/chromium.x509.pem"), Path("keys/chromium.pk8"))
+        elif "microg" in file:
+            sign_file(OUTPUT_DIR / Path(file).name, Path("keys/microg.x509.pem"), Path("keys/microg.pk8"))
+        else:
+            print(f"Error: no signing keys specified for {file}, skipping signing.")
+            sys.exit(1)
 
     print("Done.")
 
