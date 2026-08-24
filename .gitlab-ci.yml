@@ -6,6 +6,7 @@ variables:
 before_script:
   - apt update
   - apt install git-lfs
+  - pip3 install --upgrade --break-system-packages androguard
   - echo $fdroid_keystore_base64 | base64 -d >keystore.jks
   - chmod 600 fdroid/config.py keystore.jks
   - mkdir -p fdroid/repo
