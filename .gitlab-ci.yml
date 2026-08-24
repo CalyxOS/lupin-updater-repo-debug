@@ -26,13 +26,11 @@ pages:
   - mkdir /fdroid && ../fdroidserver/fdroid deploy
   - rm -rf /fdroid/archive
   - cd .. && mkdir public && mv -v /fdroid public
-  artifacts:
-    paths:
-    - public
-    expire_in: 1 week
   only:
   - main
   - schedules
+  pages:
+    publish: public
   cache:
     paths:
     - cache
