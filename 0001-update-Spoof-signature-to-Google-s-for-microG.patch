@@ -23,8 +23,8 @@ index e038e166..818e5d2d 100644
 +            logging.warning(_("Spoofing signature for {appid} with original signature {sig}")
 +                        .format(appid=apk['packageName'], sig=apk['sig']))
 +             # Google's signature
-+            apk['sig'] = '5c099e500257d55b22eb73543ad31c24d61c7364'
-+            apk['signer'] = '9a95c64751af88429b91d5c1d637aea8a4aac6860e0ec4073e738cb5d8aac0b6'
++            apk['sig'] = 'd91564be0d13dcff260fe019eeea8cd8'
++            apk['signer'] = 'f0fd6c5b410f25cb25c3b53346c8972fae30f8ee7411df910480ad6b2d60db83'
          if not apk.get('signer'):
              raise BuildException(_("Failed to get APK signing key fingerprint"))
 -
