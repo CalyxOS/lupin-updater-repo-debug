@@ -24,6 +24,7 @@ from pathlib import Path
 REPOS = [
     "https://gitlab.com/CalyxOS/lfs_prebuilts_calyx_chromium_arm64.git",
     "https://gitlab.com/CalyxOS/lfs_prebuilts_calyx_microg.git",
+    "https://gitlab.com/CalyxOS/lfs_prebuilts_calyx_lupin.git",
 ]
 
 FILES_TO_COPY = [
@@ -32,6 +33,7 @@ FILES_TO_COPY = [
     "git/lfs_prebuilts_calyx_chromium_arm64/TrichromeWebView6432.apk",
     "git/lfs_prebuilts_calyx_microg/GmsCore/play-services-core-mapbox-default-release.apk",
     "git/lfs_prebuilts_calyx_microg/GmsCore/vending-app-default-release-unsigned.apk",
+    "git/lfs_prebuilts_calyx_lupin/updater/updater-release.apk",
 ]
 
 GIT_DIR = Path("git")
@@ -87,6 +89,8 @@ def main() -> None:
             sign_file(OUTPUT_DIR / Path(file).name, Path("keys/chromium.x509.pem"), Path("keys/chromium.pk8"))
         elif "microg" in file:
             sign_file(OUTPUT_DIR / Path(file).name, Path("keys/microg.x509.pem"), Path("keys/microg.pk8"))
+        elif "lupin/updater" in file:
+            sign_file(OUTPUT_DIR / Path(file).name, Path("keys/org.calyxos.lupin.updater.x509.pem"), Path("keys/org.calyxos.lupin.updater.pk8"))
         else:
             print(f"Error: no signing keys specified for {file}, skipping signing.")
             sys.exit(1)
