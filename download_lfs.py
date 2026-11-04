@@ -28,9 +28,8 @@ REPOS = [
 ]
 
 FILES_TO_COPY = [
-    "git/lfs_prebuilts_calyx_chromium_arm64/universal.apk",
-    "git/lfs_prebuilts_calyx_chromium_arm64/TrichromeLibrary6432.apk",
-    "git/lfs_prebuilts_calyx_chromium_arm64/TrichromeWebView6432.apk",
+    "git/lfs_prebuilts_calyx_chromium_arm64/ChromePublic.apk",
+    "git/lfs_prebuilts_calyx_chromium_arm64/SystemWebView.apk",
     "git/lfs_prebuilts_calyx_microg/GmsCore/play-services-core-mapbox-default-release.apk",
     "git/lfs_prebuilts_calyx_microg/GmsCore/vending-app-default-release-unsigned.apk",
     "git/lfs_prebuilts_calyx_lupin/updater/updater-release.apk",
