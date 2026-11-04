@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c282e54_c918de65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2026-11-04T17:57:40Z",
+      "side": 1,
+      "message": "Hard to know if it works without actually running the CI on it.",
+      "revId": "a7d37b8c8ed115577edfc3639ce79dde4315c4f5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
